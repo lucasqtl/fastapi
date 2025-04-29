@@ -4,13 +4,14 @@ from fastapi import FastAPI
 from sqlalchemy import create_engine
 
 from seven.models import table_registry
-from seven.routers import auth, users
+from seven.routers import auth, todos, users
 from seven.schemas import Message
 
 app = FastAPI()
 
 app.include_router(users.router)
 app.include_router(auth.router)
+app.include_router(todos.router)
 
 
 engine = create_engine('sqlite:///./database.db', echo=True)
