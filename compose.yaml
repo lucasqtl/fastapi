@@ -1,0 +1,9 @@
+services:
+   seven_app:
+     image: seven_app
+     entrypoint: ./entrypoint.sh
+     build: .
+     ports:
+       - "8000:8000"
+     environment:
+       DATABASE_URL: sqlite:///database.db
